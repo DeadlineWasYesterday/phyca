@@ -48,7 +48,7 @@ EXTENSIONS = []
 
 setup(
     name="phyca",
-    version='0.0.1',
+    version='0.0.2',
     author="Md Nafis Ul Alam",
     author_email="deadlinewasyesterday@gmail.com",
     url="https://github.com/DeadlineWasYesterday/phyca",
