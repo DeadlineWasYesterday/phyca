@@ -448,7 +448,7 @@ def buscoseq(cmpdir,d2,gene,args):
 
 
 
-def uniphy(args):
+def phyca(args):
 
     if (args.assembly is None) and (args.compdir is None):
         print("Please specify either assembly with -a or Compleasm output directory with -c.")
@@ -507,10 +507,10 @@ def uniphy(args):
         sys.exit()      
 
 
-    ### UniPhy
+    ### phyca
     #remove previous output
     if os.path.exists(args.output):
-        print('UniPhy output from a previous run exists and will be overwritten. Use the -o option to set a new output directory.')
+        print('phyca output from a previous run exists and will be overwritten. Use the -o option to set a new output directory.')
         shutil.rmtree(args.output)
     #create output directory   
     os.makedirs("{0}".format(args.output), exist_ok=True)
@@ -735,7 +735,7 @@ def uniphy(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="UniPhy")
+    parser = argparse.ArgumentParser(description="phyca")
     parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version='__version__'))
     
     #group = parser.add_mutually_exclusive_group(required=True)
@@ -758,7 +758,7 @@ def main():
                         help="Includes contigs with single genes for syntenic distances.")
     
 
-    parser.set_defaults(func=uniphy)
+    parser.set_defaults(func=phyca)
 
     if len(sys.argv) == 1:
         parser.print_help()

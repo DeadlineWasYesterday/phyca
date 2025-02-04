@@ -33,25 +33,25 @@ if setuptools_version_tuple < (70, 1) and "bdist_wheel" in sys.argv:
 MIN_PY_VER = (3, 8)
 if sys.version_info[:2] < MIN_PY_VER:
     sys.stderr.write(
-        ("ERROR: UniPhy requires Python %i.%i or later. " % MIN_PY_VER)
+        ("ERROR: phyca requires Python %i.%i or later. " % MIN_PY_VER)
         + ("Python %d.%d detected.\n" % sys.version_info[:2])
     )
     sys.exit(1)
 # elif sys.version_info[:2] == (3, 9):
-#     sys.stderr.write("WARNING: UniPhy support for Python 3.9 is now deprecated.\n")
+#     sys.stderr.write("WARNING: phyca support for Python 3.9 is now deprecated.\n")
 
 REQUIRES = ["numpy", "pandas>=2", "matplotlib", "seaborn", "biopython", "BioNick", 'scipy']
 
-PACKAGES = ["UniPhy"]
+PACKAGES = ["phyca"]
 
 EXTENSIONS = []
 
 setup(
-    name="UniPhy",
+    name="phyca",
     version='0.0.1',
     author="Md Nafis Ul Alam",
     author_email="deadlinewasyesterday@gmail.com",
-    url="https://github.com/DeadlineWasYesterday/UniPhy",
+    url="https://github.com/DeadlineWasYesterday/phyca",
     description="Universal ortholog based Phylogenomic toolkit.",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -67,12 +67,12 @@ setup(
     ],
     entry_points={
             'console_scripts': [
-                'UniPhy=UniPhy:main',
+                'phyca=phyca:main',
                 ],
             },
     packages=PACKAGES,
     ext_modules=EXTENSIONS,
-    #package_data={'UniPhy' :['CUS.tsv']},
+    #package_data={'phyca' :['CUS.tsv']},
     include_package_data=True,  # done via MANIFEST.in under setuptools
     install_requires=REQUIRES,
     python_requires=">=%i.%i" % MIN_PY_VER,
