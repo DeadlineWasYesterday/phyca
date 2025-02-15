@@ -26,14 +26,14 @@ Python (tested with 3.9.19)
 ↓
 │───numpy (tested with 2.0.2)
 │───pandas (tested with 2.2.3)
-|───matplotlib (tested with 3.9.4)
+│───matplotlib (tested with 3.9.4)
 │───seaborn (tested with 0.13.2)
 │───SciPy (tested with 1.13.1)
-|───BioNick (tested with 0.0.7)
+│───BioNick (tested with 0.0.7)
 └───Compleasm (tested with 0.2.6)
-        |─── hmmer (tested with 3.1b2)
-        |─── miniprot (tested with 0.13-r248)
-        |      └─── libgcc (tested with 14.2.0 under conda)
+        │─── hmmer (tested with 3.1b2)
+        │─── miniprot (tested with 0.13-r248)
+        │      └─── libgcc (tested with 14.2.0 under conda)
         └─── SEPP (tested with 4.4.0)
                └─── pplacer and guppy (v1.1.alpha19-0-g807f6f3) 
 ```
@@ -54,7 +54,15 @@ phyca -c <compleasm_direcoty> -l <lineage>
 The above run will output BUSCO, CUSCO (Curated USCOs with higher precision) and MUSCO (remaining USCOs) statistics and graphs. It will compare the query to chromosome level genome assemblies from NCBI genome and output a table with a measure of synteny against each genome. It will output a Neighbor-Joining tree based on BUSCO synteny. Finally, it will place the assembly on a large precomputed phylogeny for the lineage and graph the observed decay in BUSCO synteny against inferred phylogenetic distance.
 
 
-phyca can also be used to compute the syntenic distance between two assemblies with the -s flag. 
+phyca can also be used 
+
+
+
+# Assembly syntenic comparisons
+
+phyca allows syntenic comparisons between assemblies with compleasm annotations or any set of gene annotations formatted in the same way.
+
+to compute the syntenic distance between two assemblies with the -s flag. 
 ```
 phyca -l <lineage> -s -a <assembly1> -r <assembly2>
 ```
@@ -63,9 +71,14 @@ The same comparison can be done by pointing to the compleasm output directoreis,
 phyca -l <lineage> -s -c <assembly1_compdir> -m <assembly2_compdir>
 ```
 
-# UniPhyDB
-The bulk data used by phyca is hosted by [AGI](https://www.genome.arizona.edu/)'s [AVA cluster](https://www.genome.arizona.edu/services/instrumentation.html). Precomputed trees and more information is available on https://UniPhydb.github.io/ . 
+Comparisons are done in the following way, adjust for variable query contiguity, and will produce the best results when one of the assemblies is highly contiguous and accurate:
 
+<img src="https://ava.genome.arizona.edu/UniPhy/web/SFig09.png" width=800>
+
+
+
+# UniPhyDB
+The bulk data used by phyca is hosted by [AGI](https://www.genome.arizona.edu/)'s [AVA cluster](https://www.genome.arizona.edu/services/instrumentation.html). All alignments, precomputed trees, annotations, metadata and more information is available at [phyca.org](http://www.phyca.org).
 
 
 # Example Output
