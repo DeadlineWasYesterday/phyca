@@ -44,7 +44,7 @@ phyca supports 10 BUSCO lineages: viridiplantae, liliopsida, eudicots, chlorophy
 
 A simple run on a query assembly, would be:
 ```
-phyca -a <assembly file> -l <lineage>
+phyca -a <assembly_file> -l <lineage>
 ```
 The Compleasm output folder can also be used as input if compleasm output was previously generated:
 ```
@@ -52,10 +52,6 @@ phyca -c <compleasm_direcoty> -l <lineage>
 ```
 
 The above run will output BUSCO, CUSCO (Curated USCOs with higher precision) and MUSCO (remaining USCOs) statistics and graphs. It will compare the query to chromosome level genome assemblies from NCBI genome and output a table with a measure of synteny against each genome. It will output a Neighbor-Joining tree based on BUSCO synteny. Finally, it will place the assembly on a large precomputed phylogeny for the lineage and graph the observed decay in BUSCO synteny against inferred phylogenetic distance.
-
-
-phyca can also be used 
-
 
 
 # Assembly syntenic comparisons
